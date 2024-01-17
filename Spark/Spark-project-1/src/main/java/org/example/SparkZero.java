@@ -1,10 +1,8 @@
 package org.example;
-
 import org.apache.spark.sql.SparkSession;
 
 public class SparkZero {
     public static void main(String[] args) {
-
         String winutilPath = "C:\\Software\\winutils\\"; //\\bin\\winutils.exe"; //bin\\winutils.exe";
 
         if (System.getProperty("os.name").toLowerCase().contains("win")) {
@@ -20,6 +18,5 @@ public class SparkZero {
                 .getOrCreate();
 
         spark.stop();
-
     }
 }

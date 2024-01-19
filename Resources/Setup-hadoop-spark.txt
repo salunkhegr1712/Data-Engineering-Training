@@ -1,3 +1,9 @@
+see article : https://medium.com/@ansabiqbal/setting-up-apache-spark-pyspark-on-windows-11-machine-e16b7382624a
+
+if hadoop directory is not present error came use :
+	System.setProperty("hadoop.home.dir","path to hadoop bin folder which has winutils.exe");
+
+
 get hadoop.dll and win-utils.exe from https://github.com/steveloughran/winutils/tree/master/hadoop-3.0.0/bin
 
 you should have

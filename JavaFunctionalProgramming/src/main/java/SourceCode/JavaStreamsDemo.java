@@ -1,11 +1,11 @@
-package org.example;
+package SourceCode;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class JavaCodes {
+public class JavaStreamsDemo {
     public static void somemethod() {
         //java 7
         List<Integer> arr = new ArrayList<Integer>();

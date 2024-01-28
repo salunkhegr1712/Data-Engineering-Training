@@ -1,4 +1,4 @@
-package org.example;
+package SourceCode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,21 +12,25 @@ class DemoReturnCallable implements Callable<String> {
     }
 }
 
+interface MyRunnable extends Runnable{
+
+}
+
 public class ExecutorServiceDemo {
     public static void simple_executor_service() {
         ExecutorService executorService = Executors.newFixedThreadPool(5);
         List<MyRunnable> objs = new ArrayList<>();
-        for(int i = 0; i < 10; i++) {
-            MyRunnable obj = new MyRunnable(" MyRunnabble " + i);
-            objs.add(obj);
-            executorService.execute((Runnable) obj);
-        }
+//        for(int i = 0; i < 10; i++) {
+////            MyRunnable obj = new MyRunnable(" MyRunnabble " + i);
+//            objs.add(obj);
+//            executorService.execute((Runnable) obj);
+//        }
 
         System.out.println("Main thread: " + Thread.currentThread().getName() +
                 " thread id " + Thread.currentThread().getId());
 
         for(MyRunnable obj : objs) {
-            System.out.println(obj.getReturnVariable());
+            System.out.println();
         }
 
         executorService.shutdown();

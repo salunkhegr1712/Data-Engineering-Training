@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e7a571c2-e7aa-43b3-adea-42ea9060a2b3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/JavaFunctionalProgramming/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFunctionalProgramming/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFunctionalProgramming/src/main/java/org/example/AdditionalCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFunctionalProgramming/src/main/java/SourceCode/AdditionalCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFunctionalProgramming/src/main/java/org/example/CompletableFutureDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFunctionalProgramming/src/main/java/SourceCode/CompletableFutureDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFunctionalProgramming/src/main/java/org/example/ExecutorServiceDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFunctionalProgramming/src/main/java/SourceCode/ExecutorServiceDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFunctionalProgramming/src/main/java/org/example/FunctionalCoding.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFunctionalProgramming/src/main/java/SourceCode/FunctionalCoding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFunctionalProgramming/src/main/java/org/example/JavaCodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFunctionalProgramming/src/main/java/SourceCode/JavaStreamsDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFunctionalProgramming/src/main/java/org/example/MyRunnable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFunctionalProgramming/src/main/java/org/example/ThreadLocalDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFunctionalProgramming/src/main/java/SourceCode/ThreadLocalDemo.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2bZQsA8LZ5NVNXAtp9lW77LqtWi" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/Data Enginnering L1"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e7a571c2-e7aa-43b3-adea-42ea9060a2b3" name="Changes" comment="" />
+      <created>1706420324705</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706420324705</updated>
+    </task>
+    <servers />
+  </component>
+</project>

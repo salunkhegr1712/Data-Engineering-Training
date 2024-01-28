@@ -1,4 +1,4 @@
-package org.example;
+package SourceCode;
 
 class TRunnable implements Runnable {
 

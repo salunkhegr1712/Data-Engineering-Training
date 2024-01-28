@@ -1,0 +1,10 @@
+As the IllegalStateException is a RuntimeException, a compiler will not
+signalize about a problem. So it is very important to remember that
+ghansham Java 8 streams can’t be reused.
+This kind of behavior is logical. We designed streams to apply a
+sequence of operations to the source of elements in a functional style,
+not to store elements.
+So to make the previous code work properly, some changes should be made:
+asdvsdbvdsabdf fesdbdb bfsdbadsf
+aabdfbsdf sdabdfssbfd dbfab
+ghansham

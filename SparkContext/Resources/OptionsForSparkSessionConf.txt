@@ -1,0 +1,52 @@
+Spark Configuration Properties:
+
+    spark.some.property:
+        You can set various Spark-specific configuration properties using this method.
+        For example, spark.executor.memory, spark.driver.memory, etc.
+
+    Application Name:
+        spark.app.name: Sets the name of your Spark application.
+
+    Master URL:
+        spark.master: Specifies the URL of the cluster manager. For example, "local" for running locally or "yarn" for running on a Hadoop YARN cluster.
+
+    Number of Executors and Executor Memory:
+        spark.executor.instances: Number of executors to launch.
+        spark.executor.memory: Amount of memory to allocate per executor.
+
+    Driver Memory:
+        spark.driver.memory: Amount of memory to allocate for the driver.
+
+    Executor and Driver Cores:
+        spark.executor.cores: Number of cores to allocate per executor.
+        spark.driver.cores: Number of cores to allocate for the driver.
+
+    Logging Level:
+        spark.logConf: If set to true, Spark will log the configuration settings.
+
+    Serialization:
+        spark.serializer: Specifies the serializer for RDD serialization. For example, "org.apache.spark.serializer.KryoSerializer".
+
+    Checkpoint Directory:
+        spark.checkpoint.dir: Directory to store Spark's checkpoint files.
+
+    Dynamic Allocation:
+        spark.dynamicAllocation.enabled: Enables or disables dynamic allocation of executors.
+
+    Shuffle Configuration:
+        spark.shuffle.service.enabled: Enables or disables the external shuffle service.
+
+    SQL Configuration:
+        spark.sql.shuffle.partitions: Number of partitions to use when shuffling data for Spark SQL operations.
+
+    Hive Configuration:
+        spark.sql.catalogImplementation: Configures the catalog implementation for Spark SQL (e.g., "hive").
+
+    Event Log:
+        spark.eventLog.enabled: Enables or disables Spark event logging.
+
+    External Shuffle Service:
+        spark.shuffle.service.enabled: Enables or disables the external shuffle service.
+
+    Spark Streaming:
+        spark.streaming.blockInterval: Interval at which data received by Spark Streaming is chunked into blocks.

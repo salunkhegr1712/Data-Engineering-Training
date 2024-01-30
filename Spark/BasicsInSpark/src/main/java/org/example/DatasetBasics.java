@@ -22,12 +22,17 @@ public class DatasetBasics {
 //        inside this code i will use dataframe
         SparkSession mySparkSession=SparkSession.builder().master("local[1]").getOrCreate();
 
-        Dataset<Row> myDataset=mySparkSession.read()
+//        loading dataset as the dataset of employee class using employee class
+        Dataset<Employee> myDataset=mySparkSession.read()
                 .option("header","true")
                 .option("delimiter",",")
                 .option("inferSchema", "true")
-                .csv("MyResources\\MyData.csv");
+                .csv("MyResources\\MyData.csv").as(Encoders.bean(Employee.class));
 
+        Dataset<Employee> anotherDataframe =myDataset.as(Encoders.bean(Employee.class));
+
+//        also print the schema which is Employee.class
+        System.out.println(Employee.class);
         myDataset.show();
 //        myDataset.printSchema();
 
@@ -35,9 +40,13 @@ public class DatasetBasics {
 
 //        df.show();
 
-        myDataset.createTempView("mytable");
-        mySparkSession.sql("select * from mytable where mytable.isManager=true").show();
-        System.out.println("zfbhjjhdsfhbsdhk");
+//        myDataset.createTempView("mytable");
+//        mySparkSession.sql("select * from mytable where mytable.isManager=true").show();
+//        System.out.println("zfbhjjhdsfhbsdhk");
+
+
+//        now lets convert dataframe into some another kind of dataframe
+
 
 //        JavaSparkContext javaSparkContext=new JavaSparkContext(mySparkSession.sparkContext());
 //        JavaRDD<String> lines=javaSparkContext.textFile("MyResources\\MyData.csv");

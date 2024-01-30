@@ -1,6 +1,8 @@
 package org.example;
 
 import org.apache.spark.SparkContext;
+import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.rdd.RDD;
 import org.apache.spark.sql.SparkSession;
 import scala.Function1;
@@ -27,13 +29,20 @@ public class SparkContextInSpark {
 //        now lets extract sparkContext out of sparkSession
         // the configuration of sparkContext and sparkSession will be different
         SparkContext sparkContext=sparkSession.sparkContext();
-        SparkContext sparkContext1=new SparkContext();
         System.out.println(sparkContext.appName());
 
+//        here as we are working on java so we can use javaRDD and javaContext
 
+        JavaSparkContext javaSparkContext= new JavaSparkContext(sparkSession.sparkContext());
+
+//        lets create javaRDD now
+        JavaRDD<String> javaRDD=javaSparkContext.textFile("Resources\\text.txt");
+        JavaRDD data=javaSparkContext.parallelize(Arrays.asList(1,2,3,4,5,6,7,"w3",34));
+        data.collect().forEach(System.out::println);
+//        javaRDD.map(x->Arrays.asList(x.split(" "))).collect().stream().flatMap(x->x);
 //        now lets create RDD resilient distributed dataset with sparkContext
 
-        RDD<String> rdd=sparkContext.textFile("Resources\\text.txt",1);
+
 //        rdd.flatMap(x->Arrays.asList(x.split("\n")));
 //        System.out.println(rdd.flatMap(x->x.split("")));
 //        also add some timeout for sparkSession

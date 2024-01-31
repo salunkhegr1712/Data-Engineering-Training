@@ -1,5 +1,6 @@
 package org.example;
 
+import org.apache.spark.SparkConf;
 import org.apache.spark.SparkContext;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
@@ -35,6 +36,8 @@ public class SparkContextInSpark {
 
         JavaSparkContext javaSparkContext= new JavaSparkContext(sparkSession.sparkContext());
 
+        System.out.println(javaSparkContext.getConf());
+
 //        lets create javaRDD now
         JavaRDD<String> javaRDD=javaSparkContext.textFile("Resources\\text.txt");
         JavaRDD data=javaSparkContext.parallelize(Arrays.asList(1,2,3,4,5,6,7,"w3",34));
@@ -43,9 +46,11 @@ public class SparkContextInSpark {
 //        now lets create RDD resilient distributed dataset with sparkContext
 
 
-//        rdd.flatMap(x->Arrays.asList(x.split("\n")));
-//        System.out.println(rdd.flatMap(x->x.split("")));
-//        also add some timeout for sparkSession
+//        lets also create SparkConf and from it create a java javaSparkContext
+        SparkConf sparkConf= new SparkConf().setAppName("shamSession").set("master","local[1]");
+        JavaSparkContext javaSparkContext1=new JavaSparkContext(sparkConf);
+
+        System.out.println(sparkConf.get("name"));
 
         try
         {
@@ -54,5 +59,6 @@ public class SparkContextInSpark {
 
 //        it is always good practise to stop spark session
         sparkSession.stop();
+        javaSparkContext.stop();
     }
 }

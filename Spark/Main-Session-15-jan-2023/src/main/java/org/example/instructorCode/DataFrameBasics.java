@@ -1,4 +1,4 @@
-package org.example;
+package com.bdec.training.spark;
 
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
@@ -10,9 +10,8 @@ import scala.Function1;
 import java.util.Arrays;
 
 
-
 public class DataFrameBasics {
-    static String url = "MyResources\\salary.csv";
+    static String url = "file:///C:\\Training\\sockgen_spark_java\\salary.csv";
 
 
     public static void rddVersion(SparkSession spark) {
@@ -28,7 +27,11 @@ public class DataFrameBasics {
                 Integer age = Integer.parseInt(values[1]);
                 Integer salary = Integer.parseInt(values[2]);
                 String designation = values[3];
-                Person p = new Person(age,name,salary,designation);
+                Person p = new Person();
+                p.setAge(age);
+                p.setName(name);
+                p.setSalary(salary);
+                p.setDesignation(designation);
                 return p;
             }
         });
@@ -47,7 +50,7 @@ public class DataFrameBasics {
 
         df.show();
         df.printSchema();
-        df.filter("age > 25").select("name","designation").show();
+        df.filter("age > 25").select("name", "designation").show();
     }
 
     public static void datasetVersion(SparkSession spark) {
@@ -56,25 +59,17 @@ public class DataFrameBasics {
                 .option("header", "true")
                 .option("inferSchema", "true")
                 .csv(url);
-        df.show();
-        df.printSchema();
-        df.filter("age > 25").show();
+//        df.show();
+//        df.printSchema();
+//        df.filter("age > 25").show();
 
-        df.selectExpr("name","age","salary","(salary/80) as Salary_in_Dollars").show();
-//        encode data into person class
         Dataset<Person> x = df.as(Encoders.bean(Person.class));
-        x.show();
-
-//        we can filter with some function also
-        Dataset<Person> filteredDs = x.filter(new FilterFunction<Person>() {
-            @Override
-            public boolean call(Person value) throws Exception {
-                return value.getAge() < 25;
-            }
-        });
-        x.show();
+        Dataset<Person> filteredDs = x.filter((FilterFunction<Person>)
+                value -> value.getAge() < 25);
+        filteredDs.show();
 
         Dataset<Person> adult = x.filter((FilterFunction<Person>) p -> p.isAdult());
+        adult.show();
 
     }
 
@@ -84,7 +79,7 @@ public class DataFrameBasics {
                 .option("inferSchema", "true")
                 .option("header", "true").csv(url);
         df.createOrReplaceTempView("emptable");
-        spark.sql("select * from emptable where age > 10").show();
+        spark.sql("select * from emptable where age > 25").show();
     }
 
     public static void main(String[] args) {
@@ -96,17 +91,12 @@ public class DataFrameBasics {
                 .getOrCreate();
 
 //        rddVersion(spark);
-        datasetVersion(spark);
 //        dataframeVersion(spark);
-
+//        datasetVersion(spark);
         try {
            sqlVersion(spark);
         } catch (AnalysisException e) {
             e.printStackTrace();
         }
-        try{
-            Thread.sleep(10000);
-        }catch (Exception r){r.printStackTrace();}
-//
     }
 }

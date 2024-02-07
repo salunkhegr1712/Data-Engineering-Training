@@ -53,4 +53,11 @@ public class Person implements Serializable {
                 ", designation='" + designation + '\'' +
                 '}';
     }
+
+    public Person(Integer age, String name, Integer salary, String designation) {
+        this.age = age;
+        this.name = name;
+        this.salary = salary;
+        this.designation = designation;
+    }
 }

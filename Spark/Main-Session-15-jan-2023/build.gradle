@@ -15,6 +15,7 @@ dependencies {
     implementation 'com.google.guava:guava:29.0-jre'
     implementation 'org.apache.spark:spark-sql_2.12:3.0.0'
     implementation 'org.apache.spark:spark-mllib_2.12:3.0.0'
+    implementation 'junit:junit:4.13.2'
 }
 
 test {

@@ -58,6 +58,6 @@ class SparkOprationsTest {
     }
     @AfterClass
     public static void tearDown() {
-        spark.stop();
+//        spark.stop();
     }
 }

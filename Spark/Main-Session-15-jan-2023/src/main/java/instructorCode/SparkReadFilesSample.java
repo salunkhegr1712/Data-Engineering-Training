@@ -1,10 +1,8 @@
-package com.bdec.training.spark;
+package instructorCode;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
-
-import static com.bdec.training.spark.SparkOperations.productUrl;
 
 public class SparkReadFilesSample {
     public static void main(String[] args) {

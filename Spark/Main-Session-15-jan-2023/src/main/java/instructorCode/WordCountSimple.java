@@ -1,4 +1,4 @@
-package com.bdec.training.spark;
+package instructorCode;
 
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;

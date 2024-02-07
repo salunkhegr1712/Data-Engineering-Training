@@ -1,4 +1,4 @@
-package org.example.instructorCode;
+package instructorCode;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
@@ -6,7 +6,7 @@ import org.apache.spark.sql.SaveMode;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.types.DataTypes;
 
-import static com.bdec.training.spark.SparkOperations.*;
+import static instructorCode.SparkOperations.*;
 
 public class DataPartitioningSample {
     public static void main(String[] args) {
@@ -23,6 +23,8 @@ public class DataPartitioningSample {
                 .master("local[*]")
                 .getOrCreate();
 
+        String productUrl="MyResources/product_meta.csv";
+        String salesUrl="MyResources/sales_1.csv";
         Dataset<Row> productDf = spark.read()
                 .option("inferSchema", "true")
                 .option("header", "true")

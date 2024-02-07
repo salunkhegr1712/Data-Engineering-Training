@@ -1,4 +1,4 @@
-package com.bdec.training.spark;
+package instructorCode;
 
 import java.io.Serializable;
 import java.util.Objects;

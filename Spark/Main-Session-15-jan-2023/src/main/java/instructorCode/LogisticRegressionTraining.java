@@ -1,4 +1,4 @@
-package com.bdec.training.spark;
+package instructorCode;
 
 import org.apache.spark.ml.classification.LogisticRegression;
 import org.apache.spark.ml.classification.LogisticRegressionModel;

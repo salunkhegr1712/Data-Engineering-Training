@@ -1,4 +1,4 @@
-package com.bdec.training.spark;
+package instructorCode;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
@@ -13,9 +13,9 @@ import org.codehaus.jackson.map.ser.std.DateSerializer;
 import java.util.Locale;
 
 public class SparkOperations {
-    static String productUrl = "file:///C:\\Training\\TVS\\dw\\product_meta.csv";
-    static String salesUrl = "file:///C:\\Training\\TVS\\dw\\sales_1.csv";
-    static String sales2Url = "file:///C:\\Training\\TVS\\dw\\sales_2.csv";
+    static String productUrl = "MyResources/product_meta.csv";
+    static String salesUrl = "MyResources/sales_1.csv";
+    public static String sales2Url = "MyResources/sales_2.csv";
 
     public static Dataset<Row> readSales(SparkSession spark, String filePath) {
         //
@@ -74,36 +74,30 @@ public class SparkOperations {
                 "left_semi");
         semiJoinedDf.show();
 
-        //with SQL
-//        salesDf.createOrReplaceTempView("sales");
-//        productDf.createOrReplaceTempView("product");
-//
-//        Dataset<Row> temp = spark.sql("select * from sales a join product b " +
-//                "on a.item_id = b.item_id");
-//        //temp.explain();
-//        joinedDf.explain();
+//        with SQL
+        salesDf.createOrReplaceTempView("sales");
+        productDf.createOrReplaceTempView("product");
 
-//        Dataset<Row> missingProductsDf = productDf.join(salesDf,
-//                salesDf.col("item_id").equalTo(productDf.col("item_id")),
-//                "left_outer").filter(salesDf.col("item_id").isNull());
-//        Dataset<Row> missingProductsDf2 = spark.sql(
-//                "select product.* from product left outer join sales " +
-//                        "on product.item_id = sales.item_id where sales.item_id is null");
-//
-//        missingProductsDf2 = spark.sql(
-//                "select * from product left anti join sales " +
-//                        "on product.item_id = sales.item_id");
+        Dataset<Row> temp = spark.sql("select * from sales a join product b " +
+                "on a.item_id = b.item_id");
+        //temp.explain();
+        joinedDf.explain();
 
-//        Dataset<Row> joinedDf = salesDf.join(productDf,
-//                salesDf.col("item_id").equalTo(productDf.col("item_id")),
-//                "left").filter("product_name is not null").
-//                select(salesDf.col("item_id"), salesDf.col("item_qty"),
-//                        salesDf.col("total_amount"));
+        Dataset<Row> missingProductsDf = productDf.join(salesDf,
+                salesDf.col("item_id").equalTo(productDf.col("item_id")),
+                "left_outer").filter(salesDf.col("item_id").isNull());
+        Dataset<Row> missingProductsDf2 = spark.sql(
+                "select product.* from product left outer join sales " +
+                        "on product.item_id = sales.item_id where sales.item_id is null");
 
-//        Dataset<Row> joinedDf = salesDf.join(productDf,
-//                salesDf.col("item_id").equalTo(productDf.col("item_id")),
-//                "left_outer");
-//        joinedDf.explain();
+        missingProductsDf2 = spark.sql(
+                "select * from product left anti join sales " +
+                        "on product.item_id = sales.item_id");
+
+        Dataset<Row> joinedDf1 = salesDf.join(productDf,
+                salesDf.col("item_id").equalTo(productDf.col("item_id")),
+                "left_outer");
+        joinedDf1.explain();
         try {
             Thread.sleep(100000);
         } catch (InterruptedException e) {

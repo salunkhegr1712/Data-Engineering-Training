@@ -1,4 +1,4 @@
-package com.bdec.training.spark;
+package instructorCode;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;

@@ -1,4 +1,4 @@
-package com.bdec.training.spark;
+package instructorCode;
 
 import org.apache.spark.ml.evaluation.RegressionEvaluator;
 import org.apache.spark.ml.feature.VectorAssembler;

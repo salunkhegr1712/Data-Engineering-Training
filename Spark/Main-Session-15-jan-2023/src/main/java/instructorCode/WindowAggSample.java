@@ -1,4 +1,4 @@
-package com.bdec.training.spark;
+package instructorCode;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
@@ -7,8 +7,8 @@ import org.apache.spark.sql.expressions.Window;
 import org.apache.spark.sql.expressions.WindowSpec;
 import org.apache.spark.sql.functions;
 
-import static com.bdec.training.spark.SparkOperations.readSales;
-import static com.bdec.training.spark.SparkOperations.sales2Url;
+import static instructorCode.SparkOperations.readSales;
+import static instructorCode.SparkOperations.sales2Url;
 
 public class WindowAggSample {
     /*
@@ -16,12 +16,6 @@ public class WindowAggSample {
      */
 
     public static void main(String[] args) {
-        String winUtilPath = "C:\\softwares\\winutils\\bin";
-        if(System.getProperty("os.name").toLowerCase().contains("win")) {
-            System.out.println("detected windows");
-            System.setProperty("hadoop.home.dir", winUtilPath);
-            System.setProperty("HADOOP_HOME", winUtilPath);
-        }
 
         SparkSession spark = SparkSession
                 .builder()
@@ -46,6 +40,28 @@ public class WindowAggSample {
                 functions.sum("total_amount").over(windowSpec));
 //
         windowedDf.show();
+
+        String partOutputUrl = "MyResources/spark_part_output";
+        windowedDf.write().option("header", "true").mode("Overwrite")
+                .partitionBy("date_of_sale").csv(partOutputUrl);
+
+
+//        String fullOutputUrl = "MyResources/spark_full_output";
+//        windowedDf.write().option("header", "true").mode("Overwrite")
+//                .csv(fullOutputUrl);
+//        Dataset<Row> queryFullWindowedDf = spark.read()
+//                .option("header", "true")
+//                .option("inferSchema", "true")
+//                .csv(fullOutputUrl);
+//        Dataset<Row> queryPartWindowedDf = spark.read()
+//                .option("header", "true")
+//                .option("inferSchema", "true")
+//                .csv(partOutputUrl);
+
+
+//        queryFullWindowedDf.filter("date='2020-09-02'").filter("total_amount > 100").explain();
+//        queryPartWindowedDf.filter("date='2020-09-02'").filter("total_amount > 100").explain();
+
 //
 //        WindowSpec rankSpec = Window.partitionBy("date_of_sale")
 //                .orderBy("total_amount");

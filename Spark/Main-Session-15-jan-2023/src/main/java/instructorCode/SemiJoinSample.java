@@ -1,13 +1,10 @@
-package com.bdec.training.spark;
+package instructorCode;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
-import org.apache.spark.sql.expressions.Window;
-import org.apache.spark.sql.expressions.WindowSpec;
-import org.apache.spark.sql.functions;
 
-import static com.bdec.training.spark.SparkOperations.*;
+import static instructorCode.SparkOperations.*;
 
 public class SemiJoinSample {
     public static void main(String[] args) {
